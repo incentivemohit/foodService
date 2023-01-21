@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/Css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Document</title>
+    <link rel="stylesheet" href="/CssFiles/style.css" />
+  </head>
+  <body>
+    <div class="row header align-items-center bg-white w-100 m-auto">
+      <div class="col-3 d-flex justify-content-between align-items-center">
+        <img
+          src="/images/HomePageImages/logo.jpg"
+          class="rounded-circle w-25"
+          alt=""
+        />
+      </div>
+      <div class="col-6">
+        <form>
+          <div class="form-row align-items-center d-flex">
+            <div class="col-9 my-1">
+              <input
+                type="text"
+                class="form-control"
+                id="searchInput"
+                placeholder="Search here..."
+              />
+            </div>
+
+            <div class="col-3 my-1">
+              <button type="button" class="btn btn-dark mx-1" id="searchButton">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-3 d-flex justify-content-center align-items-center">
+        <a href="/index.html" class="text-decoration-none h5 mx-5">Home</a>
+        <a href="/Html/products.html" class="h5 text-decoration-none">Menu</a>
+      </div>
+    </div>
+
+    <div id="cart-page" class="mx-3">
+      <h3 class="text-center bg-dark text-white p-2">Order Status</h3>
+      <table>
+        <thead>
+          <td>S.no</td>
+          <td>Check Box</td>
+          <td>Order No</td>
+          <td>Status</td>
+          <td>Title</td>
+          <td>From</td>
+          <td>Qty</td>
+          <td>Action</td>
+        </thead>
+        <tbody id="cardItem">
+          <tr>
+            <td>1</td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="exampleCheck1"
+              />
+            </td>
+            <td>ORD-001</td>
+            <td>Processing</td>
+            <td>item 1</td>
+            <td>John Doe</td>
+            <td>10</td>
+            <td>
+              <i class="fa fa-edit"></i>
+              <i class="fa fa-trash"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="exampleCheck1"
+              />
+            </td>
+            <td>ORD-001</td>
+            <td>Completed</td>
+            <td>item 1</td>
+            <td>John Doe</td>
+            <td>10</td>
+            <td>
+              <i class="fa fa-edit"></i>
+              <i class="fa fa-trash"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="exampleCheck1"
+              />
+            </td>
+            <td>ORD-002</td>
+            <td>Cancelled</td>
+            <td>item 1</td>
+            <td>John Doe</td>
+            <td>10</td>
+            <td>
+              <i class="fa fa-edit"></i>
+              <i class="fa fa-trash"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

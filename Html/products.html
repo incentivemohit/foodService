@@ -43,12 +43,24 @@
         />
       </div>
       <div class="col-6">
-        <input
-          type="search"
-          class="search-input"
-          style="width: 90%; height: 40px"
-        />
-        <i class="fa fa-search" style="font-size: 22px"></i>
+        <form>
+          <div class="form-row align-items-center d-flex">
+            <div class="col-9 my-1">
+              <input
+                type="text"
+                class="form-control"
+                id="searchInput"
+                placeholder="Search here..."
+              />
+            </div>
+
+            <div class="col-3 my-1">
+              <button type="button" class="btn btn-dark mx-1" id="searchButton">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
       <div class="col-3 d-flex justify-content-between align-items-center">
         <a href="/index.html" class="text-decoration-none h5">Home</a>
@@ -56,31 +68,32 @@
 
         <i
           class="fa fa-shopping-cart px-2 btn btn-success"
-          style="font-size: 35px"
+          style="font-size: 25px"
           id="orderCount"
         >
           0
         </i>
+        <a href="/Html/status.html" class="btn btn-success">Order Status</a>
       </div>
     </div>
 
-    >
-
-    <div class="row text-center">
-      <div class="col" id="curries">
-        <h4 class="text-center p-2 bg-dark text-white">Top Indian Curries</h4>
+    <div id="product">
+      <div class="row text-center">
+        <div class="col" id="curries">
+          <h4 class="text-center p-2 bg-dark text-white">Top Indian Curries</h4>
+        </div>
       </div>
-    </div>
 
-    <div class="row text-center">
-      <div class="col" id="rice">
-        <h4 class="text-center p-2 bg-dark text-white">Top Rice/Biryani</h4>
+      <div class="row text-center">
+        <div class="col" id="rice">
+          <h4 class="text-center p-2 bg-dark text-white">Top Rice/Biryani</h4>
+        </div>
       </div>
-    </div>
 
-    <div class="row text-center">
-      <div class="col" id="bread">
-        <h4 class="text-center p-2 bg-dark text-white">Top Breads</h4>
+      <div class="row text-center">
+        <div class="col" id="bread">
+          <h4 class="text-center p-2 bg-dark text-white">Top Breads</h4>
+        </div>
       </div>
     </div>
 
@@ -97,25 +110,40 @@
             </thead>
             <tbody id="cardItem"></tbody>
           </table>
-          <div class="btn-box mx-3 mt-4">
-            <button class="cart-btn">Checkout</button>
-          </div>
         </div>
       </div>
       <div class="col-4 cart-toggle" id="totalPayment">
         <div id="checkout" class="card p-3 mx-3">
           <p id="total-item" class="h4">Total Item : 5</p>
           <p id="total-price" class="h4"></p>
-          <p id="delievery" class="h4 text-success">Free delievery on $ 40</p>
+          <p id="delievery" class="h4 text-success">
+            Free delievery on Rs.1000
+          </p>
           <button
-            type="button"
             onclick="alert('Your Payment has been successfully done!')"
-            class="cart-btn"
+            class="btn btn-danger text-center text-decoration-none"
+            style="font-size: 22px"
           >
             Checkout
           </button>
         </div>
       </div>
+    </div>
+    <div id="emptyCartMsg" class="cart-toggle text-center">
+      <h2>No items are available!Please Select items.</h2>
+      <a href="/Html/products.html" class="btn btn-primary w-50"
+        >Go back to Menu</a
+      >
+    </div>
+
+    <div class="row text-center">
+      <h4
+        class="text-center p-2 bg-dark text-white cart-toggle"
+        id="searchHeading"
+      >
+        Search Results
+      </h4>
+      <div class="col" id="searchedItem"></div>
     </div>
 
     <script type="module" src="/Js/addToCart.js"></script>

@@ -22,7 +22,7 @@ function displayItems() {
 
     var itemPrice = document.createElement("p");
     itemPrice.setAttribute("id", "item-price");
-    itemPrice.innerText = "Price :" + item.price;
+    itemPrice.innerText = "Price : Rs." + item.price;
 
     var outerDiv = document.createElement("button");
     outerDiv.setAttribute("class", "addbutton add-to-cart");
@@ -49,7 +49,7 @@ function displayItems() {
 
     var itemPrice = document.createElement("p");
     itemPrice.setAttribute("id", "item-price");
-    itemPrice.innerText = "Price :" + item.price;
+    itemPrice.innerText = "Price : Rs." + item.price;
 
     var outerDiv = document.createElement("button");
     outerDiv.setAttribute("class", "addbutton add-to-cart");
@@ -76,7 +76,7 @@ function displayItems() {
 
     var itemPrice = document.createElement("p");
     itemPrice.setAttribute("id", "item-price");
-    itemPrice.innerText = "Price :" + item.price;
+    itemPrice.innerText = "Price : Rs." + item.price;
 
     var outerDiv = document.createElement("button");
     outerDiv.setAttribute("class", "addbutton add-to-cart");
@@ -193,12 +193,11 @@ function decrementItem() {
     document.getElementById("orderCount").innerText = cartData.length;
 
     if (cartData.length < 1 && flag) {
-      alert("Currently no item in cart!");
-      document.getElementById("curries").classList.toggle("cardItem-toggle");
-      document.getElementById("rice").classList.toggle("cardItem-toggle");
-      document.getElementById("bread").classList.toggle("cardItem-toggle");
       document.getElementById("cartDetails").classList.toggle("goBack");
       document.getElementById("totalPayment").classList.toggle("goBack");
+      document
+        .getElementById("emptyCartMsg")
+        .classList.toggle("cardItem-toggle");
 
       flag = false;
     }
@@ -232,4 +231,102 @@ function cartToggle() {
   } else {
     alert("Currently no item in cart!");
   }
+}
+
+// Search items
+document.getElementById("searchButton").addEventListener("click", () => {
+  var data = document.querySelector("input").value;
+  console.log(data.length);
+  if (data.length > 0) {
+    let searchingData = data.toLowerCase();
+    console.log(searchingData);
+    if (searchingData.length != 0) {
+      var searchedData = foodItems.filter((item) =>
+        item.title.toLocaleLowerCase().includes(searchingData)
+      );
+    } else {
+      document.getElementById("product").style.display = "block";
+    }
+
+    displaySearchedItems(searchedData);
+  } else {
+    document.getElementById("product").style.display = "block";
+    document.getElementById("searchedItem").remove();
+    document.getElementById("searchHeading").remove();
+  }
+});
+
+function displaySearchedItems(searchedData) {
+  document.getElementById("product").style.display = "none";
+  document.getElementById("searchHeading").style.display = "block";
+  var searchBody = document.getElementById("searchedItem");
+
+  searchedData.map((item) => {
+    var itemCard = document.createElement("div");
+    itemCard.setAttribute("id", "item-card");
+
+    var img = document.createElement("img");
+    img.src = item.image;
+
+    var itemName = document.createElement("p");
+    itemName.setAttribute("id", "item-name");
+    itemName.innerText = item.title;
+
+    var itemPrice = document.createElement("p");
+    itemPrice.setAttribute("id", "item-price");
+    itemPrice.innerText = "Price : Rs." + item.price;
+
+    var outerDiv = document.createElement("button");
+    outerDiv.setAttribute("class", "addbutton add-to-cart");
+    outerDiv.setAttribute("id", item.id);
+    outerDiv.innerHTML = "Add to Cart";
+
+    itemCard.appendChild(img);
+    itemCard.appendChild(itemName);
+    itemCard.appendChild(itemPrice);
+    itemCard.appendChild(outerDiv);
+    searchBody.appendChild(itemCard);
+  });
+}
+
+//Order status table
+
+function orderStatusTable() {
+  var tableBody = document.getElementById("cardItem");
+  tableBody.innerHTML = "";
+  cartData.map((item) => {
+    var tableRow = document.createElement("tr");
+
+    var rowData1 = document.createElement("td");
+    var img = document.createElement("img");
+    img.src = item.image;
+    rowData1.appendChild(img);
+
+    var rowData2 = document.createElement("td");
+    rowData2.innerText = item.title;
+
+    var rowData3 = document.createElement("td");
+    var btn1 = document.createElement("button");
+    btn1.setAttribute("class", "decrease-item");
+    btn1.innerText = "-";
+    var span = document.createElement("span");
+    span.innerText = item.quantity;
+    var btn2 = document.createElement("button");
+    btn2.setAttribute("class", "increase-item");
+    btn2.innerText = "+";
+
+    rowData3.appendChild(btn1);
+    rowData3.appendChild(span);
+    rowData3.appendChild(btn2);
+
+    var rowData4 = document.createElement("td");
+    rowData4.innerText = item.price;
+
+    tableRow.appendChild(rowData1);
+    tableRow.appendChild(rowData2);
+    tableRow.appendChild(rowData3);
+    tableRow.appendChild(rowData4);
+
+    tableBody.appendChild(tableRow);
+  });
 }
